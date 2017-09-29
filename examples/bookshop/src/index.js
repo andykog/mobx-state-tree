@@ -2,7 +2,15 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "mobx-react"
 import { observable, reaction } from "mobx"
-import { onSnapshot, onAction, onPatch, applySnapshot, applyAction, applyPatch, getSnapshot } from "mobx-state-tree"
+import {
+    onSnapshot,
+    onAction,
+    onPatch,
+    applySnapshot,
+    applyAction,
+    applyPatch,
+    getSnapshot
+} from "mobx-state-tree"
 
 import createRouter from "./utils/router"
 import App from "./components/App"
@@ -18,6 +26,8 @@ const shop = ShopStore.create(
         alert: m => console.log(m) // Noop for demo: window.alert(m)
     }
 )
+import { inspecableStateTree } from "mobx-devtools"
+inspecableStateTree(shop)
 
 const history = {
     snapshots: observable.shallowArray(),
