@@ -33,7 +33,7 @@ function renderPage(viewStore) {
         case "book":
             const book = viewStore.selectedBook
             if (book) return <BookDetails book={book} />
-            else return <h1>Book ${viewStore.selectedBookId} not found!</h1>
+            return <h1>Book ${viewStore.selectedBookId} not found!</h1>
         case "cart":
             return <Cart />
         default:

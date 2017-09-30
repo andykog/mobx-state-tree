@@ -15,10 +15,12 @@ import {
 import createRouter from "./utils/router"
 import App from "./components/App"
 import "./index.css"
+import inspecableStateTree from "mobx-devtools-mst"
 
 import { ShopStore } from "./stores/ShopStore"
 
 const fetcher = url => window.fetch(url).then(response => response.json())
+
 const shop = ShopStore.create(
     {},
     {
@@ -26,6 +28,8 @@ const shop = ShopStore.create(
         alert: m => console.log(m) // Noop for demo: window.alert(m)
     }
 )
+
+inspecableStateTree(shop)
 
 const history = {
     snapshots: observable.shallowArray(),

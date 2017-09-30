@@ -71,7 +71,7 @@ export const CartStore = types
         addBook(book, quantity = 1, notify = true) {
             let entry = self.entries.find(entry => entry.book === book)
             if (!entry) {
-                self.entries.push({ book: book })
+                self.entries.push({ book })
                 entry = self.entries[self.entries.length - 1]
             }
             entry.increaseQuantity(quantity)

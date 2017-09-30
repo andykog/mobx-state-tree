@@ -17,7 +17,7 @@ export const ViewStore = types
                 case "books":
                     return "/"
                 case "book":
-                    return "/book/" + self.selectedBookId
+                    return `/book/${self.selectedBookId}`
                 case "cart":
                     return "/cart"
                 default:
